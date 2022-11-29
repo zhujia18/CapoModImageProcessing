@@ -1,0 +1,55 @@
+{
+    "name": "capomod/image-processing",
+    "description": "CapoMod Image Processing",
+    "keywords": [
+        "flarum"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "require": {
+        "flarum/core": "^1.2.0"
+    },
+    "authors": [
+        {
+            "name": "Jasper",
+            "email": "443493410@qq.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "CapoMod\\ImageProcessing\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "CapoMod Image Processing",
+            "category": "theme",
+            "icon": {
+                "name": "fas fa-signal",
+                "color": "#e74c3c",
+                "backgroundColor": "#fff"
+            }
+        },
+        "flarum-cli": {
+            "modules": {
+                "admin": true,
+                "forum": true,
+                "js": true,
+                "jsCommon": true,
+                "css": true,
+                "locale": true,
+                "gitConf": true,
+                "githubActions": true,
+                "prettier": true,
+                "typescript": true,
+                "bundlewatch": false,
+                "backendTesting": true,
+                "editorConfig": true,
+                "styleci": true
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
