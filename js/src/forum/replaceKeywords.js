@@ -29,10 +29,9 @@ export default function () {
     if (domain[2]) {
         domain = domain[2];
         let fixKey = mappings[domain.toLowerCase()];
-        console.log(fixKey);
           if (fixKey) {
-            let newUrl = match + fixKey
-            return newUrl;
+            let newImg = match.replace(capture,capture+fixKey)
+            return newImg;
           } else {
             return match
           }
