@@ -29,7 +29,8 @@ export default function () {
     if (domain[2]) {
         domain = domain[2];
         let fixKey = mappings[domain.toLowerCase()];
-          if (fixKey) {
+        let needDeal = confirmEnding(capture, fixKey)
+          if (fixKey && needDeal) {
             let newImg = match.replace(capture,capture+fixKey)
             return newImg;
           } else {
@@ -41,3 +42,12 @@ export default function () {
   });
   
 }
+
+function confirmEnding(str, target) {
+  let strLen = str.length;
+  let targetLen = target.length;
+  if(str.substring(strLen-targetLen) == target){
+    return true;
+  }
+  return false;
+ }
