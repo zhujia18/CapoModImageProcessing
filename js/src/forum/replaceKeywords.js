@@ -17,8 +17,8 @@ export default function() {
 
   this.attrs.post.data.attributes.contentHtml = post.contentHtml()
     .replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi, function(match, capture) {
-      // console.log(match);
-      // console.log(capture);
+      console.log(match);
+      console.log(capture);
 
       //解析域名
       let url = parseURL(capture)
@@ -35,10 +35,12 @@ export default function() {
       //处理图片样式
       if (imageStyleMappings.hasOwnProperty(hostname)) {
         let style = imageStyleMappings[hostname.toLowerCase()];
-        if (!confirmEnding(capture, style) && !confirmEnding(capture, "gif")) {
+        if (!confirmEnding(capture, style) && !confirmEnding(capture, ".gif")) {
           let newCapture = capture + style
           match = match.replace(capture, capture + style)
           capture = newCapture
+          console.log("newCapture");
+          console.log(newCapture);
         }
       }
 
@@ -74,27 +76,4 @@ function confirmBeginning(string, target) {
 
 function confirmEnding(string, target) {
   return string.endsWith(target);
-}
-
-function processingDomain(hostname, match, capture) {
-  let newHostname = domainReplaceMappings[hostname.toLowerCase()];
-  let newCapture = capture.replace(hostname, newHostname)
-  match = match.replace(capture, newCapture)
-  return match
-}
-
-function processingStyle(hostname, match, capture) {
-  let style = imageStyleMappings[hostname.toLowerCase()];
-  if (!confirmEnding(capture, style)) {
-    match = match.replace(capture, capture + style)
-  }
-  return match
-}
-
-function processingHTTPS(hostname, match, capture) {
-  let protocol = httpsMappings[hostname.toLowerCase()];
-  if (!confirmBeginning(capture, protocol)) {
-    match = match.replace("http://" + hostname, protocol + hostname)
-  }
-  return match
 }
