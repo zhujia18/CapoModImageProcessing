@@ -32,17 +32,17 @@ export default function() {
         hostname = newHostname
       }
 
-      //处理图片样式
-      if (imageStyleMappings.hasOwnProperty(hostname)) {
-        let style = imageStyleMappings[hostname.toLowerCase()];
-        if (!confirmEnding(capture, style) && !confirmEnding(capture, ".gif")) {
-          let newCapture = capture + style
-          match = match.replace(capture, capture + style)
-          capture = newCapture
-          console.log("newCapture");
-          console.log(newCapture);
-        }
-      }
+      // //处理图片样式
+      // if (imageStyleMappings.hasOwnProperty(hostname)) {
+      //   let style = imageStyleMappings[hostname.toLowerCase()];
+      //   if (!confirmEnding(capture, style) && !confirmEnding(capture, ".gif")) {
+      //     let newCapture = capture + style
+      //     match = match.replace(capture, capture + style)
+      //     capture = newCapture
+      //     console.log("newCapture");
+      //     console.log(newCapture);
+      //   }
+      // }
 
       //处理图片SSL
       if (httpsMappings.hasOwnProperty(hostname)) {
