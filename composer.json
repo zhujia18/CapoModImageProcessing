@@ -1,6 +1,7 @@
 {
     "name": "capomod/image-processing",
     "description": "CapoMod Image Processing",
+    "version": "1.0.1",
     "keywords": [
         "flarum"
     ],
