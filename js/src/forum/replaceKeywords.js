@@ -1,6 +1,6 @@
 import app from 'flarum/app';
 
-export default function() {
+export default function () {
   const post = this.attrs.post;
 
   const domainReplaceMappings = {
@@ -8,15 +8,15 @@ export default function() {
   }
 
   const imageStyleMappings = {
-    "image.capomod.87rc.net": "!webp"
+    "oss-capomod.zasper.net": "!webp"
   }
 
   const httpsMappings = {
-    "image.capomod.87rc.net": "https://"
+    "oss-capomod.zasper.net": "https://"
   }
 
   this.attrs.post.data.attributes.contentHtml = post.contentHtml()
-    .replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi, function(match, capture) {
+    .replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi, function (match, capture) {
       console.log(match);
       console.log(capture);
 
